@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class in here</title>
+    <link rel="stylesheet" href="index.css">
+    
+</head>
+<body>
+    <nav id="nav">
+        <a id="sign" href="SignUp.html">Sign-up</a>
+        <a id="log" href="LogIn.html">Log-in</a>
+        <select id="class" title="Select class">
+            <option selected disabled>Class</option>
+            <option>IX</option>
+            <option>X</option>
+            <option>XI</option>
+            <option>XII</option>
+        </select>
+        <select id="section" title="Select section">
+            <option selected disabled>Section</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+            <option>E</option>
+        </select>
+        <select name="subject" id="subject" title="Select Subject" onchange="showUpload()">
+            <option>Subject..</option>
+            <option>Hindi</option>
+            <option>English</option>
+            <option>Mathematics</option>
+            <option>Physics</option>
+            <option>Biology</option>
+        </select>
+        <select name="class-material" id="class-material" title="Class Material" onchange="showUpload()">
+            <option>Class Material..</option>
+            <option>Practice Paper</option>
+            <option>Previous year papers</option>
+            <option>Notes</option>
+            <option>Classwork</option>
+            <option>Homework</option>
+        </select>
+    </nav>
+    <header>
+        <div class="upload">
+            <input type="file" id="add-material"/>
+        </div>
+        <section class="hindi">
+            <h3 class="title">Hindi</h3>
+            <div id="hindi-list">
+                <div class="hindi-card">
+                    <img src="./IMG_20220919_211416.jpg" alt="none">
+                    <ul type="none">
+                        <li>Date:</li>
+                        <li>Class:</li>
+                        <li>Section:</li>
+                        <li>Subject:</li>
+                        <li>Material:</li>
+                        <li>Submitted By:</li>
+                       <li><a href="./images/IMG_20220919_211416.jpg">Click to Open</a></li>
+                    </ul>
+                </div>
+                <div class="hindi-card">
+                    <img src="./IMG_20220919_211416.jpg" alt="none">
+                    <ul type="none">
+                        <li>Date:</li>
+                        <li>Class:</li>
+                        <li>Section:</li>
+                        <li>Subject:</li>
+                        <li>Material:</li>
+                        <li>Submitted By:</li>
+                       <li><a href="./images/IMG_20220919_211416.jpg">Click to Open</a></li>
+                    </ul>
+                </div>
+                <div class="hindi-card">
+                    <img src="./IMG_20220919_211416.jpg" alt="none">
+                    <ul type="none">
+                        <li>Date:</li>
+                        <li>Class:</li>
+                        <li>Section:</li>
+                        <li>Subject:</li>
+                        <li>Material:</li>
+                        <li>Submitted By:</li>
+                       <li><a href="./images/IMG_20220919_211416.jpg">Click to Open</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </section>
+    </header>
+    <script src="index.js"></script>
+    <script src="signup-login.js"></script>
+</body>
+</html>
