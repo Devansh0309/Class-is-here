@@ -12,7 +12,7 @@
     <nav id="nav">
         <a id="sign" href="SignUp.html">Sign-up</a>
         <a id="log" href="LogIn.html">Log-in</a>
-        <select id="class" title="Select class">
+        <!-- <select id="class" title="Select class">
             <option selected disabled>Class</option>
             <option>IX</option>
             <option>X</option>
@@ -26,14 +26,14 @@
             <option>C</option>
             <option>D</option>
             <option>E</option>
-        </select>
+        </select> -->
         <select name="subject" id="subject" title="Select Subject" onchange="showUpload()">
             <option>Subject..</option>
             <option>Hindi</option>
-            <option>English</option>
-            <option>Mathematics</option>
-            <option>Physics</option>
-            <option>Biology</option>
+            <option selected disabled>English</option>
+            <option selected disabled>Mathematics</option>
+            <option selected disabled>Physics</option>
+            <option selected disabled>Biology</option>
         </select>
         <select name="class-material" id="class-material" title="Class Material" onchange="showUpload()">
             <option>Class Material..</option>
@@ -43,15 +43,16 @@
             <option>Classwork</option>
             <option>Homework</option>
         </select>
+        <button type="button" onclick="logout()" id="logout">Logout</button>
     </nav>
     <header>
         <div class="upload">
-            <input type="file" id="add-material"/>
+            <input type="file" id="add-material" oninput="upload(this)"/>
         </div>
         <section class="hindi">
             <h3 class="title">Hindi</h3>
             <div id="hindi-list">
-                <div class="hindi-card">
+                <!-- <div class="hindi-card">
                     <img src="./IMG_20220919_211416.jpg" alt="none">
                     <ul type="none">
                         <li>Date:</li>
@@ -60,38 +61,15 @@
                         <li>Subject:</li>
                         <li>Material:</li>
                         <li>Submitted By:</li>
-                       <li><a href="./images/IMG_20220919_211416.jpg">Click to Open</a></li>
+                       <li><a onclick="isLogged(this)">Click to Open</a></li>
                     </ul>
-                </div>
-                <div class="hindi-card">
-                    <img src="./IMG_20220919_211416.jpg" alt="none">
-                    <ul type="none">
-                        <li>Date:</li>
-                        <li>Class:</li>
-                        <li>Section:</li>
-                        <li>Subject:</li>
-                        <li>Material:</li>
-                        <li>Submitted By:</li>
-                       <li><a href="./images/IMG_20220919_211416.jpg">Click to Open</a></li>
-                    </ul>
-                </div>
-                <div class="hindi-card">
-                    <img src="./IMG_20220919_211416.jpg" alt="none">
-                    <ul type="none">
-                        <li>Date:</li>
-                        <li>Class:</li>
-                        <li>Section:</li>
-                        <li>Subject:</li>
-                        <li>Material:</li>
-                        <li>Submitted By:</li>
-                       <li><a href="./images/IMG_20220919_211416.jpg">Click to Open</a></li>
-                    </ul>
-                </div>
+                </div> -->
             </div>
             
         </section>
     </header>
-    <script src="index.js"></script>
+    
     <script src="signup-login.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

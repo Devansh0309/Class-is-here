@@ -19,7 +19,18 @@ body{
     text-decoration: none;
     color:coral;
 }
-
+#log:hover,#sign:hover{
+    font-size:medium;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    transition: 0.01s ease-out;
+}
+#log:active,#sign:active{
+    font-size:small;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    transition: 0.01s ease-in;
+}
 select{
     font-size: smaller;
     color:coral;
@@ -32,10 +43,26 @@ select{
     text-align: center;
 }
 #add-material{
-    
-    /* background-color: blanchedalmond;
-    text-decoration: none; */
     border:none;
+}
+#logout{
+    border:none;
+    background-color: bisque;
+    color:coral;
+    font-size: smaller;
+    
+}
+#logout:hover{
+    font-size:small;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    transition: 0.01s ease-out;
+}
+#logout:active{
+    font-size:smaller;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    transition: 0.01s ease-in;
 }
 .hindi{
     margin:10px;
@@ -44,7 +71,6 @@ select{
     color:coral;
 }
 #hindi-list{
-    /* margin:10px; */
     display:flex;
     gap: 10px;
     flex-wrap: wrap;

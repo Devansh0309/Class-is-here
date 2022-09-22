@@ -41,6 +41,8 @@ const resetSignupFields = () => {
     console.log(document.getElementById('signup-first-name').value)
     document.getElementById('signup-first-name').value='';
     document.getElementById('signup-last-name').value='';
+    document.getElementById('signup-class').value='';
+    document.getElementById('signup-section').value='';
     document.getElementById('signup-email').value='';
     document.getElementById('signup-phone-number').value='';
     document.getElementById('signup-password').value='';
@@ -48,6 +50,8 @@ const resetSignupFields = () => {
     document.getElementById('tnC').checked=false;
     document.getElementById('first-name-valid').style.display='none';
     document.getElementById('last-name-valid').style.display='none';
+    document.getElementById('class-valid').style.display='none';
+    document.getElementById('section-valid').style.display='none';
     document.getElementById('email-valid').style.display='none';
     document.getElementById('phone-number-valid').style.display='none';
 }
@@ -117,14 +121,14 @@ const signup = () => {
         err=true;
     }
     if(email.length && email.includes('@') && email.includes('.') && email.length-email.lastIndexOf('.')>=3 &&
-    email.indexOf('@')!=0 && email.indexOf('.')-email.indexOf('@')>=2 && email.indexOf('@')==email.lastIndexOf('@')){
+    email.indexOf('@')!=0 && email.indexOf('.')-email.indexOf('@')>=2 && email.indexOf('@')==email.lastIndexOf('@') && (localStorage.getItem('Data')==null || !JSON.parse(localStorage.getItem('Data')).find((user) => user.email===email))){
         valid('email-valid','email-invalid');
     }
     else{
         valid('email-invalid','email-valid');
         err=true;
     }
-    if(phone.length==10 && (parseInt(phone, 10)).toString().length==10){
+    if(phone.length==10 && (parseInt(phone, 10)).toString().length==10 && (localStorage.getItem('Data')==null || !JSON.parse(localStorage.getItem('Data')).find((user) => user.phone===phone))){
         valid('phone-number-valid','phone-number-invalid');
     }
     else{
@@ -145,7 +149,7 @@ const signup = () => {
     else{
         document.getElementById("tnC-invalid").style.display='none';
     }
-    console.log(err)
+    // console.log(err)
     if(err==false){
         let userDetails={
             firstName,
@@ -155,12 +159,16 @@ const signup = () => {
             email,
             password:encrypt(password),
             phone
+            // ,logged:false
         }
         DB_USERS.push(userDetails);
+        localStorage.setItem('Data',JSON.stringify(DB_USERS))
+        // localStorage.setItem(userDetails.email,JSON.stringify(userDetails))
         resetSignupFields();
         // console.log(userDetails);
         signupSuccessAlert.style.display='block'
         signupFailureAlert.style.display='none'
+        // console.log(DB_USERS)
     }
     else{
         signupSuccessAlert.style.display='none'
@@ -168,16 +176,22 @@ const signup = () => {
     }
     
 }
-
+let currentUser;
     const login = () => {
+        console.log(DB_USERS)
         let enteredEmail=document.getElementById('login-email').value;
         let enteredPassword=document.getElementById('login-password').value;
         let LoginSuccessAlert=document.getElementById('login-alert-success');
         let LoginFailureAlert=document.getElementById('login-alert-failure');
-        let currentUser=DB_USERS.find((user) => user.email===enteredEmail && decrypt(user.password)===enteredPassword)
+        currentUser=JSON.parse(localStorage.getItem('Data')).find((user) => user.email===enteredEmail && decrypt(user.password)===enteredPassword)
+        // let currentUser=JSON.parse(localStorage.getItem(enteredEmail))
         if(currentUser){
             LoginSuccessAlert.style.display='block';
             LoginFailureAlert.style.display='none';
+            // userDetails.logged=true
+            // localStorage.setItem(userDetails.email,JSON.stringify(userDetails))
+            localStorage.setItem('Logged','yes')
+            localStorage.setItem('currentUser',JSON.stringify(currentUser))
         }
         else{
             LoginSuccessAlert.style.display='none';
@@ -186,6 +200,6 @@ const signup = () => {
         // console.log(JSON.stringify(currentUser))
         resetLoginFields();
     }
-    
+//  export {currentUser}   
     
     
