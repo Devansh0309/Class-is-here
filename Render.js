@@ -6,6 +6,8 @@ function render(){
     physicsList.innerHTML=''
     bioList.innerHTML=''
     let subjectCards=JSON.parse(localStorage.getItem('cards'))
+    let subject=document.getElementById('subject').value
+    let material=document.getElementById('class-material').value
     if(subjectCards){
         if(subject!='Subject..'){
             document.getElementById(subject).style.display='block'
@@ -58,7 +60,6 @@ function render(){
 }
 
 function createCard(ele){
-    // console.log('hi')
     let card=document.createElement('div')
     let img=document.createElement('img')
     let list=document.createElement('ul')
