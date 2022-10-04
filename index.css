@@ -1,67 +1,85 @@
 body{
     width:100%;
     margin:0;
-    background-color:blanchedalmond;
+    background-color:rgb(255, 255, 255)
 }
 #nav{
     /* position:fixed; */
-    font-size: smaller;
+    /* border-bottom: 1px solid blue; */
+    font-size:larger;
     margin:0px 3px;
     width:100%;
-    background-color:bisque;
+    background-color:rgb(126, 190, 219);
     height:50px;
     display:flex;
     align-items: center;
     gap:2px;
     justify-content:space-around;
     overflow-x:auto;
+    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
 }
 #sign,#log{
+    cursor: pointer;
+    font-weight: bold;
     text-decoration: none;
     color:coral;
 }
 #log:hover,#sign:hover{
-    font-size:medium;
+    cursor: pointer;
+    background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%);
+    font-size:larger;
+    padding: 1%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
+    border-radius:0;
     transition: 0.01s ease-out;
 }
 #log:active,#sign:active{
-    font-size:small;
+    cursor: pointer;
+    font-size:medium;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     transition: 0.01s ease-in;
 }
 select{
-    font-size: smaller;
+    cursor: pointer;
+    padding: 0.5%;
+    font-size: medium;
     color:coral;
-    border:none;
-    background-color: bisque;
+    border:0px;
+    border-radius: 2%;
+    background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%);
     text-align: center;
 }
 .upload{
+    cursor: pointer;
     margin:10px;
+    border-radius: 2%;
+    background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%);
     text-align: center;
 }
 #add-material{
+    cursor: pointer;
     border:none;
 }
 #logout{
-    border:none;
-    background-color: bisque;
+    cursor: pointer;
+    border:0px;
+    background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%);
     color:coral;
-    font-size: smaller;
+    font-size: medium;
     
 }
 #logout:hover{
-    font-size:small;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    font-size:medium;
+    background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%);
     border-radius: 5px;
     transition: 0.01s ease-out;
 }
 #logout:active{
-    font-size:smaller;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    font-size:medium;
+    background-image: linear-gradient(to right top, #00e345, #00f4d0, #00f8ff, #c9f5ff, #ffffff);
     border-radius: 5px;
     transition: 0.01s ease-in;
 }
@@ -76,16 +94,18 @@ select{
 }
 #hindi-list,#english-list,#maths-list,#physics-list,#bio-list{
     display:flex;
-    gap:10px;
+    gap:3%;
     flex-wrap: wrap;
 }
 .subject-card{
     display: flex;
+    padding: 2%;
     flex-direction: column;
-    width:100px;
+    width:auto;
     height:auto;
-    border-radius: 4px;
-    font-size: smaller;
+    background-color: rgb(241, 248, 246);
+    border-radius: 1%;
+    font-size: medium;
     justify-content: flex-start;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -131,7 +151,7 @@ select{
 }
 .password-rules{
     font-weight: lighter;
-    font-size: smaller;
+    font-size: medium;
 }
 #popup{
     display: none;
@@ -140,6 +160,7 @@ select{
     height:auto;
     max-height: 500px;
     border-radius: 5px;
+   
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     position:fixed;
     /* margin:auto; */

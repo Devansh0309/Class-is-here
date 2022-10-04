@@ -10,7 +10,7 @@
 </head>
 <body>
     <form class="login-form" id="login-form">
-        <h2 class="col-md-12 display-4 login-title">Login</h2>
+        <h2 class="col-md-12 display-4 login-title" style="color: rgb(61, 236, 222);font-family: sans-serif;">Login</h2>
         <div class="alert alert-success alert-dismissible fade show signup-alert" role="alert" id="login-alert-success">
           Logged In Successfully!
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -26,18 +26,18 @@
         <div class="mb-3">
           <label for="login-email" class="form-label">Email address</label>
           <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <div id="emailHelp" class="form-text" style="font-size: small;color:red ;">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
           <label for="login-password" class="form-label">Password</label>
           <input type="password" class="form-control" id="login-password">
         </div>
         <div class="button-wrapper">
-            <button type="button" class="btn btn-dark" onclick="login()">Login</button>
+            <button type="button" class="btn btn-primary" onclick="login()">Login</button>
             <span>or</span>
-          <a href="SignUp.html">Sign Up</a>
+          <a href="SignUp.html"> <button type="button" class="btn btn-primary">Sign Up</button></a>
           <span>or</span>
-          <a href="index.html">Home</a>
+          <a href="index.html"><button type="button" class="btn btn-primary">Home</button></a>
         </div>
       </form>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
