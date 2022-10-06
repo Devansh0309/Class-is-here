@@ -163,7 +163,7 @@ const signup = () => {
         }
         DB_USERS.push(userDetails);
         localStorage.setItem('Data',JSON.stringify(DB_USERS))
-        localStorage.setItem('Image Address',JSON.stringify({}))
+        // localStorage.setItem('Image Address',JSON.stringify({}))
         resetSignupFields();
         // console.log(userDetails);
         signupSuccessAlert.style.display='block'
