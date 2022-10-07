@@ -95,24 +95,41 @@ function upload(file){
             name:currentUser.firstName+currentUser.lastName,
             subject:subject,
             material:material,
-            link:fileAddress
+            link:fileAddress,
+            email:currentUser.email
         })
         localStorage.setItem('cards',JSON.stringify(cards))
 
         //close/delete button for subject card uploaded
         closeButton.addEventListener('click',()=>{
-            console.log('hello bhai')
-            if(localStorage.getItem('Logged')=='yes'){
-                console.log(card.id,cards[card.id])
+            let ans=confirm('Want to delete this file?')
+            if(localStorage.getItem('Logged')=='yes' && cards[card.id].email===currentUser.email && ans===true){
                 document.getElementById(cards[card.id].subject).children.item(1).removeChild(card)
                 let cardDivs=document.getElementsByClassName('subject-card')
-                for(let i=card.id;i<cardDivs.length;i++){
+                console.log(cardDivs)
+                for(let i=0;i<cardDivs.length-card.id;i++){
                     cardDivs[i].id--
                 }
                 cards.splice(card.id,1)
                 imageAddr.splice(card.id,1)
                 localStorage.setItem('cards',JSON.stringify(cards))
                 localStorage.setItem('Image Address',JSON.stringify(imageAddr))
+            }
+            else if(localStorage.getItem('Logged')=='no'){
+                alert('SignUp-->LogIn to make changes!')
+                document.getElementById('popup').style.display='block'
+                document.body.style.opacity='0.5'
+            }
+            else if(cards[card.id].email!==currentUser.email){
+                alert('Not a vlaid person to delete this file!')
+            }
+        })
+
+        //Edit to enable make changes in subject, material type and can change file by uploading again.
+        editButton.addEventListener('click',()=>{
+
+            if(localStorage.getItem('Logged')=='yes' && cards[card.id].email===currentUser.email){
+
             }
             else{
                 alert('SignUp-->LogIn to make changes!')

@@ -71,6 +71,7 @@ function createCard(subjectCards,index){
     let img=document.createElement('img')
     let list=document.createElement('ul')
     let fileLink=document.createElement('button')
+    let currentUser=JSON.parse(localStorage.getItem('currentUser'))
     
     card.className='subject-card'
     buttons.className='card-buttons'
@@ -118,14 +119,12 @@ function createCard(subjectCards,index){
 
     //close/delete button for subject card uploaded
     closeButton.addEventListener('click',()=>{
-        console.log('hello bhai')
-        if(localStorage.getItem('Logged')=='yes'){
-            // console.log( document.getElementById(subjectCards[card.id].subject))
-            
+        let ans=confirm('Want to delete this file?')
+        if(localStorage.getItem('Logged')=='yes' && ele.email===currentUser.email && ans===true){
             document.getElementById(ele.subject).children.item(1).removeChild(card)
             let cardDivs=document.getElementsByClassName('subject-card')
             console.log(cardDivs)
-            for(let i=card.id;i<cardDivs.length;i++){
+            for(let i=0;i<cardDivs.length-card.id;i++){
                 cardDivs[i].id--
             }
             let imgAddr=JSON.parse(localStorage.getItem('Image Address'))
@@ -134,10 +133,13 @@ function createCard(subjectCards,index){
             localStorage.setItem('cards',JSON.stringify(subjectCards))
             localStorage.setItem('Image Address',JSON.stringify(imgAddr))
         }
-        else{
+        else if(localStorage.getItem('Logged')=='no'){
             alert('SignUp-->LogIn to make changes!')
             document.getElementById('popup').style.display='block'
             document.body.style.opacity='0.5'
+        }
+        else if(ele.email!==currentUser.email){
+            alert('Not a vlaid person to delete this file!')
         }
     }) 
 }
