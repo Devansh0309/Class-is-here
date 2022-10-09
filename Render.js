@@ -7,6 +7,8 @@ function render(){
     let subjectCards=JSON.parse(localStorage.getItem('cards'))
     let subject=document.getElementById('subject').value
     let material=document.getElementById('class-material').value
+    let classes=document.getElementById('classes').value;
+    let section=document.getElementById('section').value;
     if(subjectCards){
         if(subject!='Subject..'){
             console.log(subjectCards[0])
@@ -27,47 +29,70 @@ function render(){
     }
         
     for(let index=0;index<subjectCards.length;index++){
-            if(localStorage.getItem('Logged')=='no'){
-                console.log('ni')
-                if(subject=='Subject..' && material=='Class Material..'){
+                if(subject=='Subject..' && material=='Class Material..' && classes=='Class..' && section=='Section..'){
                     createCard(subjectCards,index)
                 }
-                else if(material=='Class Material..' && subjectCards[index].subject==subject){
+                else if(subject=='Subject..' && material=='Class Material..' && classes=='Class..' && section==subjectCards[index].section){
                     createCard(subjectCards,index)
                 }
-                else if(subject=='Subject..' && subjectCards[index].material==material){
+                else if(subject=='Subject..' && material=='Class Material..' && classes==subjectCards[index].class &&
+                section=='Section..'){
                     createCard(subjectCards,index)
                 }
-                else if(subjectCards[index].subject==subject && subjectCards[index].material==material){
+                else if(subject=='Subject..' && material=='Class Material..' && classes==subjectCards[index].class && section==subjectCards[index].section){
                     createCard(subjectCards,index)
                 }
-            }
-            else if(subjectCards[index].class==JSON.parse(localStorage.getItem('currentUser')).classInput && subjectCards[index].section==JSON.parse(localStorage.getItem('currentUser')).section){
-                console.log('you are inside')
-                if(subject=='Subject..' && material=='Class Material..'){
+                else if(subject=='Subject..' && subjectCards[index].material==material && classes=='Class..' && section=='Section..'){
                     createCard(subjectCards,index)
                 }
-                else if(material=='Class Material..' && subjectCards[index].subject==subject){
+                else if(subject=='Subject..' && subjectCards[index].material==material && classes=='Class..' && section==subjectCards[index].section){
                     createCard(subjectCards,index)
                 }
-                else if(subject=='Subject..' && subjectCards[index].material==material){
+                else if(subject=='Subject..' && subjectCards[index].material==material && classes==subjectCards[index].class && section=='Section..'){
                     createCard(subjectCards,index)
                 }
-                else if(subjectCards[index].subject==subject && subjectCards[index].material==material){
+                else if(subject=='Subject..' && subjectCards[index].material==material && classes==subjectCards[index].class &&
+                section==subjectCards[index].section){
                     createCard(subjectCards,index)
                 }
-            }
+                else if(subjectCards[index].subject==subject && material=='Class Material..' && classes=='Class..' && section=='Section..'){
+                    createCard(subjectCards,index)
+                }
+                else if(subjectCards[index].subject==subject && material=='Class Material..' && classes=='Class..' && section==subjectCards[index].section){
+                    createCard(subjectCards,index)
+                }
+                else if(subjectCards[index].subject==subject && material=='Class Material..' && classes==subjectCards[index].class && section=='Section..'){
+                    createCard(subjectCards,index)
+                }
+                else if(subjectCards[index].subject==subject && material=='Class Material..' && classes==subjectCards[index].class && section==subjectCards[index].section){
+                    createCard(subjectCards,index)
+                }
+                else if(subjectCards[index].subject==subject && subjectCards[index].material==material && classes=='Class..' && section=='Section..'){
+                    createCard(subjectCards,index)
+                }
+                else if(subjectCards[index].subject==subject && subjectCards[index].material==material && classes=='Class..' && section==subjectCards[index].section){
+                    createCard(subjectCards,index)
+                }
+                else if(subjectCards[index].subject==subject && subjectCards[index].material==material && classes==subjectCards[index].class && section=='Section..'){
+                    createCard(subjectCards,index)
+                }
+                else if(subjectCards[index].subject==subject && subjectCards[index].material==material && classes==subjectCards[index].class && section==subjectCards[index].section){
+                    createCard(subjectCards,index)
+                }
         }
     }
 }
 
 function createCard(subjectCards,index){
+    console.log('hi')
     let ele=subjectCards[index]
     let card=document.createElement('div')
     let buttons=document.createElement('div')
     let closeButton=document.createElement('button')
     
-    let editButton=document.createElement('button')
+    let edit=document.createElement('div')
+    let editSubject=document.createElement('select')
+    let editMaterial=document.createElement('select')
     let img=document.createElement('img')
     let list=document.createElement('ul')
     let fileLink=document.createElement('button')
@@ -77,12 +102,17 @@ function createCard(subjectCards,index){
     buttons.className='card-buttons'
     fileLink.className='file-address'
     closeButton.className='close-button'
-    editButton.className='edit-button'
+    edit.className='edit'
+    editSubject.className='edit-button'
+    editMaterial.className='edit-button'
 
     closeButton.innerText='X'
     closeButton.setAttribute('type','button')
-    editButton.innerText='Make Changes'
-    editButton.setAttribute('type','button')
+
+    editSubject.innerHTML='<option>Subject</option><option>Hindi</option><option>English</option><option>Mathematics</option><option>Physics</option><option>Biology</option>'
+
+    editMaterial.innerHTML='<option>Material</option><option>Practice Paper</option><option>Previous year papers</option><option>Notes</option><option>Classwork</option><option>Homework</option>'
+
     img.setAttribute('alt','not found')
     img.setAttribute('src',ele.link)
     list.setAttribute('type','none')
@@ -97,7 +127,8 @@ function createCard(subjectCards,index){
     <li>Subject:${ele.subject}</li>
     <li>Material:${ele.material}</li>`
     // list.appendChild(fileLink)
-    buttons.append(fileLink,editButton,closeButton)
+    edit.append(editSubject,editMaterial)
+    buttons.append(fileLink,edit,closeButton)
     card.append(buttons,img,list)
     card.setAttribute('id',index)
     
@@ -141,5 +172,43 @@ function createCard(subjectCards,index){
         else if(ele.email!==currentUser.email){
             alert('Not a vlaid person to delete this file!')
         }
+    })
+
+    //Edit to enable make changes in subject, material type and can change file by uploading again.
+    editSubject.addEventListener('change',()=>{
+
+        if(localStorage.getItem('Logged')=='yes' && subjectCards[card.id].email===currentUser.email && editSubject.value!='Subject'){
+            document.getElementById(card.id).children.item(2).children.item(3).innerText=`Subject: ${editSubject.value}`
+            subjectCards[card.id].subject=editSubject.value
+            localStorage.setItem('cards',JSON.stringify(subjectCards))
+            card.children.item(2).children.item(3).innerText=`Subject: ${editSubject.value}`
+        }
+        else if(editSubject.value=='Subject'){
+            alert('Select valid subject to make change!')
+        }
+        else{
+            alert('SignUp-->LogIn to make changes!')
+            document.getElementById('popup').style.display='block'
+            document.body.style.opacity='0.5'
+        }
     }) 
+
+    editMaterial.addEventListener('change',()=>{
+
+        if(localStorage.getItem('Logged')=='yes' && subjectCards[card.id].email===currentUser.email && editMaterial.value!='Material'){
+            document.getElementById(card.id).children.item(2).children.item(4).innerText=`Material: ${editMaterial.value}`
+            subjectCards[card.id].material=editMaterial.value
+            localStorage.setItem('cards',JSON.stringify(subjectCards))
+            card.children.item(2).children.item(4).innerText=`Material: ${editMaterial.value}`
+        }
+        else if(editMaterial.value=='Material'){
+            alert('Select valid Material to make changes!')
+        }
+        else{
+            alert('SignUp-->LogIn to make changes!')
+            document.getElementById('popup').style.display='block'
+            document.body.style.opacity='0.5'
+        }
+    }) 
+    
 }

@@ -18,7 +18,9 @@ function upload(file){
         let card=document.createElement('div')
         let buttons=document.createElement('div')
         let closeButton=document.createElement('button')
-        let editButton=document.createElement('button')
+        let edit=document.createElement('div')
+        let editSubject=document.createElement('select')
+        let editMaterial=document.createElement('select')
         let img=document.createElement('img')
         let list=document.createElement('ul')
         let fileLink=document.createElement('button')
@@ -28,14 +30,17 @@ function upload(file){
         buttons.className='card-buttons'
         fileLink.className='file-address'
         closeButton.className='close-button'
-        editButton.className='edit-button'
+        edit.className='edit'
+        editSubject.className='edit-button'
+        editMaterial.className='edit-button'
 
         closeButton.innerText='X'
         closeButton.setAttribute('type','button')
         
-        editButton.innerText='Make Changes'
-        editButton.setAttribute('type','button')
-        
+        editSubject.innerHTML='<option>Subject</option><option>Hindi</option><option>English</option><option>Mathematics</option><option>Physics</option><option>Biology</option>'
+
+        editMaterial.innerHTML='<option>Material</option><option>Practice Paper</option><option>Previous year papers</option><option>Notes</option><option>Classwork</option><option>Homework</option>'
+
         img.setAttribute('alt','not found')
         img.setAttribute('src',fileAddress)
         list.setAttribute('type','none')
@@ -43,12 +48,13 @@ function upload(file){
         fileLink.addEventListener('click',isLogged(fileLink,fileAddress))
 
         list.innerHTML=`
-        <li>Class:${currentUser.classInput}</li>
-        <li>Section:${currentUser.section}</li>
+        <li>Class:${classes}</li>
+        <li>Section:${section}</li>
         <li>Submitted By:${currentUser.firstName}   ${currentUser.lastName}</li>
         <li>Subject:${subject}</li>
         <li>Material:${material}</li>`
-        buttons.append(fileLink,editButton,closeButton)
+        edit.append(editSubject,editMaterial)
+        buttons.append(fileLink,edit,closeButton)
         card.append(buttons,img,list)
 
         if(subject!='Subject..'){
@@ -90,8 +96,8 @@ function upload(file){
         card.setAttribute('id',`${cards.length>0?cards.length:0}`)
 
         cards.push({
-            class:currentUser.classInput,
-            section:currentUser.section,
+            class:classes,
+            section:section,
             name:currentUser.firstName+currentUser.lastName,
             subject:subject,
             material:material,
@@ -126,10 +132,34 @@ function upload(file){
         })
 
         //Edit to enable make changes in subject, material type and can change file by uploading again.
-        editButton.addEventListener('click',()=>{
+        editSubject.addEventListener('change',()=>{
 
-            if(localStorage.getItem('Logged')=='yes' && cards[card.id].email===currentUser.email){
+            if(localStorage.getItem('Logged')=='yes' && cards[card.id].email===currentUser.email && editSubject.value!='Subject'){
+                document.getElementById(card.id).children.item(2).children.item(3).innerText=`Subject: ${editSubject.value}`
+                cards[card.id].subject=editSubject.value
+                localStorage.setItem('cards',JSON.stringify(cards))
+                card.children.item(2).children.item(3).innerText=`Subject: ${editSubject.value}`
+            }
+            else if(editSubject.value=='Subject'){
+                alert('Select valid subject to make change!')
+            }
+            else{
+                alert('SignUp-->LogIn to make changes!')
+                document.getElementById('popup').style.display='block'
+                document.body.style.opacity='0.5'
+            }
+        }) 
 
+        editMaterial.addEventListener('change',()=>{
+
+            if(localStorage.getItem('Logged')=='yes' && cards[card.id].email===currentUser.email && editMaterial.value!='Material'){
+                document.getElementById(card.id).children.item(2).children.item(4).innerText=`Material: ${editMaterial.value}`
+                cards[card.id].material=editMaterial.value
+                localStorage.setItem('cards',JSON.stringify(cards))
+                card.children.item(2).children.item(4).innerText=`Material: ${editMaterial.value}`
+            }
+            else if(editMaterial.value=='Material'){
+                alert('Select valid Material to make changes!')
             }
             else{
                 alert('SignUp-->LogIn to make changes!')

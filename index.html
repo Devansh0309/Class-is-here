@@ -26,6 +26,21 @@
             <option>Classwork</option>
             <option>Homework</option>
         </select>
+        <select name="classes" id="classes" title="Class" onchange="showUpload();render()">
+            <option>Class..</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+        </select>
+        <select name="section" id="section" title="Section" onchange="showUpload();render()">
+            <option>Section..</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+            <option>E</option>
+        </select>
         <div class="upload">
             <input type="file" id="add-material" oninput="upload(this)"/>
         </div>
