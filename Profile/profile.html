@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../Profile/profile.css">
+</head>
+<body>
+
+    <nav>
+        <h4 id="profile-heading">Basic Information</h4>
+    </nav>
+
+    <header id="profile-header">
+        <!-- Validation for input fields required, => todo -->
+        <div>
+            <label for="fname-input">First-Name:</label>
+            <span id="profile-fname"></span>
+            <input name="fname-input" id="fname-input">
+            <button class="profile-edit-button" onclick="editProfile('profile-fname','fname-input',)">Edit</button>
+        </div>
+        <div>
+            <label for="lname-input">Last-Name:</label>
+            <span id="profile-lname"></span>
+            <input name="lname-input" id="lname-input">
+            <button class="profile-edit-button"  onclick="editProfile('profile-lname','lname-input',)">Edit</button>
+        </div>
+        <div>
+            <label for="class-input">Class:</label>
+            <span id="profile-class"></span>
+            <input name="class-input" id="class-input">
+            <button class="profile-edit-button"  onclick="editProfile('profile-class','class-input')">Edit</button>
+        </div>
+        <div>
+            <label for="section-input">Section:</label>
+            <span id="profile-section"></span>
+            <input name="section-input" id="section-input">
+            <button class="profile-edit-button"  onclick="editProfile('profile-section','section-input')">Edit</button>
+        </div>
+        <div>
+            <label for="email-input">Email:</label>
+            <span id="profile-email"></span>
+            <input name="email-input" id="email-input">
+            <button class="profile-edit-button"  onclick="editProfile('profile-email','email-input')">Edit</button>
+        </div>
+        <div>
+            <label for="phone-input">Phone:</label>
+            <span id="profile-phone"></span>
+            <input name="phone-input" id="phone-input">
+            <button class="profile-edit-button"  onclick="editProfile('profile-phone','phone-input')">Edit</button>
+        </div>
+        <button id="save-profile" onclick="saveProfile([{id:'fname-input',val:'firstName'},{id:'lname-input',val:'lastName'},
+        {id:'class-input',val:'classInput'},
+        {id:'section-input',val:'section'},
+        {id:'email-input',val:'email'},
+        {id:'phone-input',val:'phone'}])">Save Changes</button>
+    </header>
+
+    <footer>
+        <!-- Don't know what to put here -->
+    </footer>
+
+    <script src="../Profile/userDetails.js"></script>
+    <script>window.addEventListener('load',userDetails([{id1:"profile-fname",id2:"fname-input",val:'firstName'},{id1:"profile-lname",id2:"lname-input",val:'lastName'},
+    {id1:"profile-class",id2:"class-input",val:'classInput'},
+    {id1:"profile-section",id2:"section-input",val:'section'},
+    {id1:"profile-email",id2:"email-input",val:'email'},
+    {id1:"profile-phone",id2:"phone-input",val:'phone'}]))</script>
+    <script src="../Profile/editProfile.js"></script>
+    <script src="../Profile/saveProfile.js"></script>
+</body>
+</html>
