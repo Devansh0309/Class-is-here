@@ -91,6 +91,8 @@ function createCard(subjectCards,index){
     let closeButton=document.createElement('button')
     
     let edit=document.createElement('div')
+    let editClass=document.createElement('select')
+    let editSection=document.createElement('select')
     let editSubject=document.createElement('select')
     let editMaterial=document.createElement('select')
     let img=document.createElement('img')
@@ -103,11 +105,17 @@ function createCard(subjectCards,index){
     fileLink.className='file-address'
     closeButton.className='close-button'
     edit.className='edit'
+    editClass.className='edit-button'
+    editSection.className='edit-button'
     editSubject.className='edit-button'
     editMaterial.className='edit-button'
 
     closeButton.innerText='X'
     closeButton.setAttribute('type','button')
+
+    editClass.innerHTML='<option>Class</option><option>9</option><option>10</option><option>11</option><option>12</option>'
+        
+    editSection.innerHTML='<option>Section</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>'
 
     editSubject.innerHTML='<option>Subject</option><option>Hindi</option><option>English</option><option>Mathematics</option><option>Physics</option><option>Biology</option>'
 
@@ -127,7 +135,7 @@ function createCard(subjectCards,index){
     <li>Subject:${ele.subject}</li>
     <li>Material:${ele.material}</li>`
     // list.appendChild(fileLink)
-    edit.append(editSubject,editMaterial)
+    edit.append(editClass,editSection,editSubject,editMaterial)
     buttons.append(fileLink,edit,closeButton)
     card.append(buttons,img,list)
     card.setAttribute('id',index)
@@ -175,6 +183,43 @@ function createCard(subjectCards,index){
     })
 
     //Edit to enable make changes in subject, material type and can change file by uploading again.
+
+    editClass.addEventListener('change',()=>{
+
+        if(localStorage.getItem('Logged')=='yes' && subjectCards[card.id].email===currentUser.email && editClass.value!='Class'){
+            document.getElementById(card.id).children.item(2).children.item(0).innerText=`Class: ${editClass.value}`
+            subjectCards[card.id].class=editClass.value
+            localStorage.setItem('cards',JSON.stringify(subjectCards))
+            card.children.item(2).children.item(0).innerText=`Class: ${editClass.value}`
+        }
+        else if(editClass.value=='Class'){
+            alert('Select valid class to make change!')
+        }
+        else{
+            alert('SignUp-->LogIn to make changes!')
+            document.getElementById('popup').style.display='block'
+            document.body.style.opacity='0.5'
+        }
+    })
+
+    editSection.addEventListener('change',()=>{
+
+        if(localStorage.getItem('Logged')=='yes' && subjectCards[card.id].email===currentUser.email && editSection.value!='Section'){
+            document.getElementById(card.id).children.item(2).children.item(1).innerText=`Section: ${editSection.value}`
+            subjectCards[card.id].section=editSection.value
+            localStorage.setItem('cards',JSON.stringify(subjectCards))
+            card.children.item(2).children.item(1).innerText=`Section: ${editSection.value}`
+        }
+        else if(editSection.value=='Section'){
+            alert('Select valid section to make change!')
+        }
+        else{
+            alert('SignUp-->LogIn to make changes!')
+            document.getElementById('popup').style.display='block'
+            document.body.style.opacity='0.5'
+        }
+    })
+
     editSubject.addEventListener('change',()=>{
 
         if(localStorage.getItem('Logged')=='yes' && subjectCards[card.id].email===currentUser.email && editSubject.value!='Subject'){

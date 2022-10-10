@@ -1,6 +1,9 @@
 body{
     margin:0;
 }
+nav{
+    width:100vw;
+}
 #profile-heading{
     text-align: center;
     color:coral;
@@ -13,13 +16,22 @@ body{
 #profile-header{
     /* position:relative; */
     /* text-align:center; */
+    margin:50vh auto;
+    padding:20px;
+    transform: translate(0,-60%);
+    /* width:400px; */
+    max-width:500px;
+    height:auto;
     display:flex;
     flex-direction:column;
-    align-items:center;
+    align-items:flex-start;
     justify-content:center;
     font-size: larger;
     font-weight: 100;
-    gap:4px;
+    gap:6px;
+    /* border:1px solid black; */
+    border-radius:5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 span{
     text-decoration: underline;
@@ -30,4 +42,29 @@ span{
     /* left:50%; */
     /* top:auto; */
     /* margin:0; */
+}
+button{
+    border-width: 0;
+    border-radius:4px;
+    color:white;
+    background-color:#00C9FF;
+    font-size:small;
+}
+button:hover{
+    cursor: pointer;
+    color:white;
+    background-color:blue;
+    font-size:medium;
+    transition: 0.2s ease-out;
+}
+button:active{
+    cursor: pointer;
+    color:white;
+    background-color:dark blue;
+    font-size:medium;
+    transition: 0.1s ease-in;
+}
+#save-profile{
+    margin:auto;
+    font-size: medium;
 }
