@@ -1,6 +1,33 @@
+body{
+    margin:0;
+}
 #profile-heading{
     text-align: center;
+    color:coral;
+    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    margin-top:0;
+    margin-left:0;
+    margin-right:0;
+    padding:0;
 }
 #profile-header{
-    text-align:center;
+    /* position:relative; */
+    /* text-align:center; */
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    font-size: larger;
+    font-weight: 100;
+    gap:4px;
+}
+span{
+    text-decoration: underline;
+}
+.detail{
+    /* width:100%; */
+    /* position:absolute; */
+    /* left:50%; */
+    /* top:auto; */
+    /* margin:0; */
 }

@@ -10,52 +10,48 @@
 <body>
 
     <nav>
-        <h4 id="profile-heading">Basic Information</h4>
+        <h2 id="profile-heading">Basic Information</h2>
     </nav>
 
     <header id="profile-header">
         <!-- Validation for input fields required, => todo -->
-        <div>
+        <div class="detail">
             <label for="fname-input">First-Name:</label>
             <span id="profile-fname"></span>
             <input name="fname-input" id="fname-input">
-            <button class="profile-edit-button" onclick="editProfile('profile-fname','fname-input',)">Edit</button>
+            <button class="profile-edit-button" onclick="editProfile('firstName','profile-fname','fname-input',)">Edit</button>
         </div>
-        <div>
+        <div class="detail">
             <label for="lname-input">Last-Name:</label>
             <span id="profile-lname"></span>
             <input name="lname-input" id="lname-input">
-            <button class="profile-edit-button"  onclick="editProfile('profile-lname','lname-input',)">Edit</button>
+            <button class="profile-edit-button"  onclick="editProfile('lastName','profile-lname','lname-input',)">Edit</button>
         </div>
-        <div>
+        <div class="detail">
             <label for="class-input">Class:</label>
             <span id="profile-class"></span>
-            <input name="class-input" id="class-input">
-            <button class="profile-edit-button"  onclick="editProfile('profile-class','class-input')">Edit</button>
+            <input name="class-input" id="class-input" type="number">
+            <button class="profile-edit-button"  onclick="editProfile('classInput','profile-class','class-input')">Edit</button>
         </div>
-        <div>
+        <div class="detail">
             <label for="section-input">Section:</label>
             <span id="profile-section"></span>
             <input name="section-input" id="section-input">
-            <button class="profile-edit-button"  onclick="editProfile('profile-section','section-input')">Edit</button>
+            <button class="profile-edit-button"  onclick="editProfile('section','profile-section','section-input')">Edit</button>
         </div>
-        <div>
+        <div class="detail">
             <label for="email-input">Email:</label>
             <span id="profile-email"></span>
             <input name="email-input" id="email-input">
-            <button class="profile-edit-button"  onclick="editProfile('profile-email','email-input')">Edit</button>
+            <button class="profile-edit-button"  onclick="editProfile('email','profile-email','email-input')">Edit</button>
         </div>
-        <div>
+        <div class="detail">
             <label for="phone-input">Phone:</label>
             <span id="profile-phone"></span>
-            <input name="phone-input" id="phone-input">
-            <button class="profile-edit-button"  onclick="editProfile('profile-phone','phone-input')">Edit</button>
+            <input name="phone-input" id="phone-input" type="number">
+            <button class="profile-edit-button"  onclick="editProfile('phone','profile-phone','phone-input')">Edit</button>
         </div>
-        <button id="save-profile" onclick="saveProfile([{id:'fname-input',val:'firstName'},{id:'lname-input',val:'lastName'},
-        {id:'class-input',val:'classInput'},
-        {id:'section-input',val:'section'},
-        {id:'email-input',val:'email'},
-        {id:'phone-input',val:'phone'}])">Save Changes</button>
+        <button id="save-profile" onclick="validateChanges()">Save Changes</button>
     </header>
 
     <footer>
@@ -69,6 +65,7 @@
     {id1:"profile-email",id2:"email-input",val:'email'},
     {id1:"profile-phone",id2:"phone-input",val:'phone'}]))</script>
     <script src="../Profile/editProfile.js"></script>
+    <script src="validateChanges.js"></script>
     <script src="../Profile/saveProfile.js"></script>
 </body>
 </html>

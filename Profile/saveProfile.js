@@ -19,14 +19,16 @@ function saveProfile(arr){
     localStorage.setItem('Data',JSON.stringify(UsersData))
     if(check){
         let cards=JSON.parse(localStorage.getItem('cards'))
-        cards=cards.map(ele=>{
-            if(ele.email==email){
-                ele.name=user.firstName+' '+user.lastName
-                ele.email=user.email
-            }
-            return ele
-        })
-        localStorage.setItem('cards',JSON.stringify(cards))
+        if(cards){
+            cards=cards.map(ele=>{
+                if(ele.email==email){
+                    ele.name=user.firstName+' '+user.lastName
+                    ele.email=user.email
+                }
+                return ele
+            })
+            localStorage.setItem('cards',JSON.stringify(cards))
+        }
     }
     window.location.href='../Profile/profile.html'
 }
