@@ -194,6 +194,7 @@ select{
 .file-address{
     padding:0;
     margin: 0;
+    height:25%;
 }
 .close-button{
     background:none;
@@ -201,6 +202,7 @@ select{
     cursor: pointer;
     padding: 0;
     margin: 0;
+    height:25%;
     /* font-weight: bold; */
 }
 .close-button:hover{

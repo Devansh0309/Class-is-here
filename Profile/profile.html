@@ -19,39 +19,50 @@
             <label for="fname-input">First-Name:</label>
             <span id="profile-fname"></span>
             <input name="fname-input" id="fname-input">
-            <button class="profile-edit-button" onclick="editProfile('firstName','profile-fname','fname-input',)">Edit</button>
+            <button class="profile-edit-button" onclick="editProfile(this,'firstName','profile-fname','fname-input',)">Edit</button>
+            <button class="profile-revertEdit-button" onclick="revert(this,'firstName','profile-fname','fname-input',)">Back</button>
         </div>
         <div class="detail">
             <label for="lname-input">Last-Name:</label>
             <span id="profile-lname"></span>
             <input name="lname-input" id="lname-input">
-            <button class="profile-edit-button"  onclick="editProfile('lastName','profile-lname','lname-input',)">Edit</button>
+            <button class="profile-edit-button"  onclick="editProfile(this,'lastName','profile-lname','lname-input',)">Edit</button>
+            <button class="profile-revertEdit-button"  onclick="revert(this,'lastName','profile-lname','lname-input',)">Back</button>
         </div>
         <div class="detail">
             <label for="class-input">Class:</label>
             <span id="profile-class"></span>
             <input name="class-input" id="class-input" type="number">
-            <button class="profile-edit-button"  onclick="editProfile('classInput','profile-class','class-input')">Edit</button>
+            <button class="profile-edit-button"  onclick="editProfile(this,'classInput','profile-class','class-input')">Edit</button>
+            <button class="profile-revertEdit-button"  onclick="revert(this,'classInput','profile-class','class-input')">Back</button>
         </div>
         <div class="detail">
             <label for="section-input">Section:</label>
             <span id="profile-section"></span>
             <input name="section-input" id="section-input">
-            <button class="profile-edit-button"  onclick="editProfile('section','profile-section','section-input')">Edit</button>
+            <button class="profile-edit-button"  onclick="editProfile(this,'section','profile-section','section-input')">Edit</button>
+            <button class="profile-revertEdit-button"  onclick="revert(this,'section','profile-section','section-input')">Back</button>
         </div>
         <div class="detail">
             <label for="email-input">Email:</label>
             <span id="profile-email"></span>
             <input name="email-input" id="email-input">
-            <button class="profile-edit-button"  onclick="editProfile('email','profile-email','email-input')">Edit</button>
+            <button class="profile-edit-button"  onclick="editProfile(this,'email','profile-email','email-input')">Edit</button>
+            <button class="profile-revertEdit-button"  onclick="revert(this,'email','profile-email','email-input')">Back</button>
         </div>
         <div class="detail">
             <label for="phone-input">Phone:</label>
             <span id="profile-phone"></span>
             <input name="phone-input" id="phone-input" type="number">
-            <button class="profile-edit-button"  onclick="editProfile('phone','profile-phone','phone-input')">Edit</button>
+            <button class="profile-edit-button"  onclick="editProfile(this,'phone','profile-phone','phone-input')">Edit</button>
+            <button class="profile-revertEdit-button"  onclick="revert(this,'phone','profile-phone','phone-input')">Back</button>
         </div>
-        <button id="save-profile" onclick="validateChanges()">Save Changes</button>
+        <div class="basic-info-buttons">
+            <button id="save-profile" onclick="validateChanges()">Save Changes</button>
+            <span>or</span>
+            <a href="../Home/index.html"><button class="btn btn-primary" type="button">Home</button></a>
+        </div>
+        
     </header>
 
     <footer>

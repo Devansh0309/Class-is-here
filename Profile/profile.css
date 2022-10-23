@@ -64,7 +64,20 @@ button:active{
     font-size:medium;
     transition: 0.1s ease-in;
 }
-#save-profile{
+.basic-info-buttons{
+    margin: auto;
+    font-size: medium;
+    /* text-align:center; */
+    /* display:flex;
+    align-items: center;
+    justify-content:space-around;
+    gap:4px; */
+}
+/* #save-profile{
+    margin:auto;
+    
+}
+.btn{
     margin:auto;
     font-size: medium;
-}
+} */
