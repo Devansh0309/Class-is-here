@@ -69,17 +69,18 @@ select{
 }
 #logout{
     cursor: pointer;
-    border:0px;
-    background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%);
+    font-weight: bold;
+    text-decoration: none;
     color:coral;
-    font-size: medium;
     
 }
 #logout:hover{
     cursor: pointer;
-    font-size:medium;
     background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%);
-    border-radius: 5px;
+    font-size:larger;
+    padding: 1%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius:0;
     transition: 0.01s ease-out;
 }
 #logout:active{
