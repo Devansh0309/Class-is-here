@@ -168,6 +168,7 @@ const signup = () => {
         // console.log(userDetails);
         signupSuccessAlert.style.display='block'
         signupFailureAlert.style.display='none'
+        setTimeout(()=>{window.location.assign('../Home/index.html')},2000)
         // console.log(DB_USERS)
     }
     else{
@@ -195,10 +196,13 @@ let currentUser;let index;
             localStorage.setItem('currentUserID',JSON.stringify(index))
             localStorage.setItem('Logged','yes')
             localStorage.setItem('currentUser',JSON.stringify(currentUser))
+            setTimeout(()=>{window.location.assign('../Home/index.html')},2000)
+            
         }
         else{
             LoginSuccessAlert.style.display='none';
             LoginFailureAlert.style.display='block';
+            
         }
         // console.log(JSON.stringify(currentUser))
         resetLoginFields();

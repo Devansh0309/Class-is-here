@@ -5,4 +5,7 @@ function logout(){
     for(let i of document.getElementsByClassName('file-address')){
         i.setAttribute('href','')
     }
+    document.getElementById('sign').style.display='block'
+    document.getElementById('log').style.display='block'
+    document.getElementById('logout').style.display='none'
 }

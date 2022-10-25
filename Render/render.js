@@ -9,6 +9,16 @@ function render(){
     let material=document.getElementById('class-material').value
     let classes=document.getElementById('classes').value;
     let section=document.getElementById('section').value;
+    if(localStorage.getItem('Logged')=='yes'){
+        document.getElementById('sign').style.display='none'
+        document.getElementById('log').style.display='none'
+        document.getElementById('logout').style.display='block'
+    }
+    else{
+        document.getElementById('sign').style.display='block'
+        document.getElementById('log').style.display='block'
+        document.getElementById('logout').style.display='none'
+    }
     if(subjectCards){
         if(subject!='Subject..'){
             console.log(subjectCards[0])
