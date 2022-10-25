@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-    <nav id="nav">
+    <!-- <nav id="nav">
         <select name="classes" id="classes" title="Class" onchange="render()">
             <option>Class..</option>
             <option>9</option>
@@ -49,7 +49,82 @@
         <a id="log" href="../SignUp-Login/LogIn.html">Log-in</a>
         <a id="profile" href="../Profile/profile.html">Profile</a>
         <button type="button" onclick="logout()" id="logout">Logout</button>
-    </nav>
+    </nav> -->
+
+
+    <header class="header">
+        <nav class="navbar" id="nav">
+            <a href="#" class="nav-logo">WebDev.</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <select name="classes" id="classes" title="Class" onchange="render()">
+                            <option>Class..</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+                </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <select name="section" id="section" title="Section" onchange="render()">
+                            <option>Section..</option>
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                            <option>D</option>
+                            <option>E</option>
+                        </select>      
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <select name="subject" id="subject" title="Select Subject" onchange="render()">
+                            <option>Subject..</option>
+                            <option>Hindi</option>
+                            <option>English</option>
+                            <option>Mathematics</option>
+                            <option>Physics</option>
+                            <option>Biology</option>
+                        </select>        
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <select name="class-material" id="class-material" title="Class Material" onchange="render()">
+                            <option>Class Material..</option>
+                            <option>Practice Paper</option>
+                            <option>Previous year papers</option>
+                            <option>Notes</option>
+                            <option>Classwork</option>
+                            <option>Homework</option>
+                        </select>       
+                    </a>
+                </li>
+                <li>
+                    <div class="upload">
+                        <button type="button" name="upload-button" id="upload-button"  onclick="showUpload()">Upload</button>
+                        <input type="file" id="add-material" oninput="upload(this)"/>
+                    </div>
+                 
+                   
+                   
+                   
+                </li>
+                <li class="nav-item">    <a id="sign" href="../SignUp-Login/SignUp.html">Sign-up</a></li>
+                <li class="nav-item"> <a id="log" href="../SignUp-Login/LogIn.html">Log-in</a></li>
+                <li class="nav-item"> <a id="profile" href="../Profile/profile.html">Profile</a></li>
+                <li class="nav-item"><button type="button" onclick="logout()" id="logout">Logout</button></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+</header>
 
 
 
@@ -74,7 +149,23 @@
 
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <header>
         <div id="popup">
@@ -113,6 +204,7 @@
             </div>
         </section>
     </header>
+
 </div>
     <script src="../SignUp-Login/signup-login.js"></script>
     <script src="../Upload/showUpload.js"></script>
@@ -124,3 +216,28 @@
     <script>window.addEventListener('load',render())</script>
 </body>
 </html>
+
+
+<script >
+
+
+
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    
+    hamburger.addEventListener("click", mobileMenu);
+    
+    function mobileMenu() {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    }
+    const navLink = document.querySelectorAll(".nav-link");
+    
+    navLink.forEach(n => n.addEventListener("click", closeMenu));
+    
+    // function closeMenu() {
+    //     hamburger.classList.remove("active");
+    //     navMenu.classList.remove("active");
+    // }
+    
+    </script>
