@@ -9,39 +9,46 @@ body{
     font-size:larger;
     margin:0px 3px;
     width:100%;
-    background-color:rgb(126, 190, 219);
+    background-color: #383938;
+
+    /* rgb(126, 190, 219); */
     height:50px;
     display:flex;
     align-items: center;
     gap:2px;
     justify-content:space-around;
     overflow-x:auto;
-    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    /* background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); */
+
+    /* background: #2c2c6c; */
+   
+
 }
 #sign,#log{
-    cursor: pointer;
+    
     font-weight: bold;
+    font-family: Gill Sans, sans-serif;
     text-decoration: none;
-    color:coral;
+    color:white;
 }
 #profile{
     cursor: pointer;
     font-weight: bold;
     text-decoration: none;
-    color:coral;
+    color:white;
 }
-#log:hover,#sign:hover{
+#log:hover,#sign:hover,#profile:hover{
     cursor: pointer;
-    background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%);
-    font-size:larger;
-    padding: 1%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius:0;
-    transition: 0.01s ease-out;
+    /* background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%); */
+   color: coral;
+   font-size: larger;
+   transition: 1s;
+    
 }
 #log:active,#sign:active{
     cursor: pointer;
     font-size:medium;
+    color: blue;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     transition: 0.01s ease-in;
@@ -53,6 +60,7 @@ select{
     color:coral;
     border:0px;
     border-radius: 2%;
+    border: #482ff7;
     background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%);
     text-align: center;
 }
@@ -70,22 +78,24 @@ select{
 #logout{
     cursor: pointer;
     border:0px;
-    background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%);
-    color:coral;
+    /* background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%); */
+    color:blue;
     font-size: medium;
     
 }
 #logout:hover{
     cursor: pointer;
     font-size:medium;
-    background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%);
+    color: coral;
+    /* background: linear-gradient(90deg, #b6ebe8 0%, #ffffff 100%); */
     border-radius: 5px;
     transition: 0.01s ease-out;
 }
 #logout:active{
     cursor: pointer;
+    color: blue;
     font-size:medium;
-    background-image: linear-gradient(to right top, #00e345, #00f4d0, #00f8ff, #c9f5ff, #ffffff);
+    /* background-image: linear-gradient(to right top, #00e345, #00f4d0, #00f8ff, #c9f5ff, #ffffff); */
     border-radius: 5px;
     transition: 0.01s ease-in;
 }
@@ -96,25 +106,49 @@ select{
     display:none;
 }
 .title{
-    color:coral;
+    color:orangered;
+    font-size: 20px;
+    text-align: center;
+    background-color: #b6ebe8;
+    font-family: Apple Chancery, cursive;
 }
 #hindi-list,#english-list,#maths-list,#physics-list,#bio-list{
     display:flex;
-    gap:3%;
+    gap:2%;
     flex-wrap: wrap;
+    margin: auto;
+    width: 100%;
+    
 }
 .subject-card{
+    margin: 1%;
     display: flex;
     padding: 2%;
     flex-direction: column;
-    max-width:150px;
+    max-width:250px;
     height:auto;
-    background-color: rgb(241, 248, 246);
-    border-radius: 1%;
+    /* background-color: rgb(241, 248, 246); */
+    /* border-radius: 1%; */
     font-size: medium;
     justify-content: flex-start;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.subject-card:hover{
+   /* border:0.5px solid coral; */
+   border-bottom-right-radius: 15%;
+   border-top-left-radius: 15%;
+  
+  
+   background: #F0F2F0;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to bottom, #588996, #F0F2F0);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to bottom, #84a7a7, #F0F2F0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   
+
+  transition: all 2s;
+   
+}
+
+
 .subject-card ul{
     padding:0;
     margin:0;
@@ -289,6 +323,7 @@ a {
 }
 
 .nav-logo {
+    font-family:URW Chancery L, cursive;
     font-size: 2.1rem;
     font-weight: 500;
     color: #482ff7;
