@@ -8,4 +8,5 @@ function logout(){
     document.getElementById('sign').style.display='block'
     document.getElementById('log').style.display='block'
     document.getElementById('logout').style.display='none'
+    document.getElementById('profile').style.display='none'
 }

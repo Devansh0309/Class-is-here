@@ -13,11 +13,13 @@ function render(){
         document.getElementById('sign').style.display='none'
         document.getElementById('log').style.display='none'
         document.getElementById('logout').style.display='block'
+        document.getElementById('profile').style.display='block'
     }
     else{
         document.getElementById('sign').style.display='block'
         document.getElementById('log').style.display='block'
         document.getElementById('logout').style.display='none'
+        document.getElementById('profile').style.display='none'
     }
     if(subjectCards){
         if(subject!='Subject..'){
