@@ -231,7 +231,7 @@ function createCard(subjectCards,index){
             document.body.style.opacity='0.5'
         }
     })
-
+    
     editSubject.addEventListener('change',()=>{
 
         if(localStorage.getItem('Logged')=='yes' && subjectCards[card.id].email===currentUser.email && editSubject.value!='Subject'){
