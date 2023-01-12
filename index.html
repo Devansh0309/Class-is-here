@@ -66,9 +66,9 @@
                         <input type="file" id="add-material" oninput="upload(this)"/>
                     </div>
                 </li>
-                <li class="nav-item">    <a id="sign" href="../SignUp-Login/SignUp.html">Sign-up</a></li>
-                <li class="nav-item"> <a id="log" href="../SignUp-Login/LogIn.html">Log-in</a></li>
-                <li class="nav-item"> <a id="profile" href="../Profile/profile.html">Profile</a></li>
+                <li class="nav-item">    <a id="sign" href="./SignUp-Login/SignUp.html">Sign-up</a></li>
+                <li class="nav-item"> <a id="log" href="./SignUp-Login/LogIn.html">Log-in</a></li>
+                <li class="nav-item"> <a id="profile" href="./Profile/profile.html">Profile</a></li>
                 <li class="nav-item"><button type="button" onclick="logout()" id="logout">Logout</button></li>
             </ul>
             <div class="hamburger">
@@ -82,9 +82,9 @@
         <div id="popup">
             <p>Signup if new user and Login first or Login if old user!</p>
             <div class="popup-buttons">
-                <a href="../SignUp-Login/SignUp.html">Sign Up</a>
+                <a href="./SignUp-Login/SignUp.html">Sign Up</a>
                 <span>or</span>
-                <a href="../SignUp-Login/LogIn.html">Login</a>
+                <a href="./SignUp-Login/LogIn.html">Login</a>
                 <span>or</span>
                 <button type="button" onclick="closePopup()" class="close-button">X</button>
             </div>
@@ -127,8 +127,6 @@
     <script>window.addEventListener('load',render())</script>
 </body>
 </html>
-
-
 <script >
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
